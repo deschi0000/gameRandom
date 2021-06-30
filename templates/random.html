@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    New Random Game
+{% endblock %}
+
+{% block body %}
+
+<link href="/static/styles.css" rel="stylesheet">
+
+<div>
+    <div>
+        <br>
+        <h5 style="padding-top: 50px;">You Could Try Playing...</h5>
+        <h3 style="width:60%; display:inline-block;">{{ game_name }}</h3>
+
+        <div style="padding-top: 30px;">
+            <img src="{{ game_image }}" />
+        </div>
+    </div>
+    <br>
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr;">
+
+        <div style="padding-left: 80%;">
+            <div style="font-family: Helvetica">Release:</div>
+            <div style="color:white; font-family: Helvetica">{{ released }}</div>
+        </div>
+        <div>
+            <div>Genres</div>
+            {% for genre in genres %}<a href="https://rawg.io/games/{{genre}}" target="_blank" style="text-transform: uppercase; margin:5px;"> {{ genre }} </a>{% endfor %}
+
+        </div>
+        <div style="padding-right: 80%;">
+            <div>Metacritic Score:</div>
+            <div style="color:white;  font-family: 'Dela Gothic One', cursive; font-size: 20px;">{{ metascore }}</div>
+        </div>
+    </div>
+
+
+</div>
+<div style="width:60%; display:inline-block; margin-top: 10px;">
+
+
+    <div>Platforms:</div>
+    {% for platform in platforms %}<a href="https://rawg.io/games/{{platform}}" target="_blank" style="text-transform: uppercase; margin:5px;"> {{ platform }} </a>{% endfor %}
+
+
+</div>
+<div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr;padding-bottom: 20px; padding-top: 20px;">
+
+        <div style="padding-left: 50%;">
+            <div style="font-family: Helvetica">Developers</div>
+            {% for developer in developers %}<div style="color:white; font-family: Helvetica">{{ developer }}</div> {% endfor %}
+        </div>
+        <div style="padding-right: 50%;">
+            <div>Average Playthrough: </div>
+            <div style="color:white;">{{ avg_play }}</div>
+        </div>
+    </div>
+</div>
+
+
+
+<div>
+
+    <div class="card border-primary mb-3" style="width:50%; display:inline-block;">
+        <div class="card-header" style="color: white;">About {{ game_name }}</div>
+        <div class="card-body">
+          <p class="card-text">{{ description }}</p>
+        </div>
+    </div>
+    <br>
+    <div>Where to Buy it:</div>
+    {% for store in stores %}<a href="http://{{ store }}" target="_blank" style="margin:5px;"> {{ store }} </a>{% endfor %}
+    <br>
+    <br>
+    <div>Find out more about it at:</div>
+    <a href="{{ website }}" target="_blank" style="margin:5px;"> {{ website }} </a>
+
+</div>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr;padding-bottom: 20px; padding-top: 50px;">
+
+    <div>
+        <form action="/" method="post">
+            <div style="padding-left:70%;">
+                <button class="btn btn-primary" type="submit" name="return">Let's Go Home</button>
+            </div>
+        </form>
+    </div>
+    <div>
+        <form action="/random" method="post">
+            <div style="padding-right:70%;">
+                <button class="btn btn-primary" type="submit" name="refresh">Refresh Me!</button>
+            </div>
+            <script>
+                $.ajax({
+                    type: "POST",
+                    url: "{{ url }}",
+                    data: infoPO,
+                    success: function() {
+                        location.reload();
+                    }
+                });
+            </script>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

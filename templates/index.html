@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block body %}
+<div style="padding-bottom:100px;">
+    <div>
+        <div class="object">
+            <img src="/static/mario.png" style="max-width:10%; max-height:10%; padding-top: 70px;padding-bottom: 50px;">
+        </div>
+    </div>
+    <div >
+        <h1>GameRandom</h1>
+        <p style="opacity: 0.5;">Click the Button for a Random Game!</p>
+        <form action="/random" method="post" id="random">
+            <div style="padding-top: 25px;">
+                <button class="btn btn-primary" type="submit" name="random">Let's Go!</button>
+            </div>
+            <br>
+            <div>
+                <div style="margin: 5px;">
+                    <select name="genrechoice" style="background-color: rgb(53, 53, 53); color: white;border-radius: 3px 3px 3px 3px">
+                        <option disabled selected value="">Adjust your Search: </option>
+                            <option value="level1">Level 1: Less obscure</option>
+                            <option value="level2">Level 2: A little crazier</option>
+                            <option value="level3">Level 3: The what now?</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

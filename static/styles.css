@@ -1,0 +1,77 @@
+@import url(https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap);
+
+nav .navbar-brand {
+    /* size for brand */
+    font-size: xx-large;
+}
+
+
+main .form-control {
+    /* Center form controls */
+    display: inline-block;
+
+    /* Override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+body {
+    text-align: center;
+}
+
+main {
+    /* Scroll horizontally as needed */
+    overflow-x: auto;
+}
+
+main img {
+    /* Constrain images on small screens */
+    max-width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5%;
+
+}
+
+h1 {
+    font-family: 'Press Start 2P', cursive;
+}
+
+
+h3 {
+    font-family: 'Press Start 2P', cursive;
+    font-weight: normal;
+    color: lightgray;
+    font-size: 2.5em;
+    padding-top: 30px;
+}
+
+h5 {
+    padding-top: 50px;
+    opacity: 0.4;
+}
+
+footer {
+    padding-top: 100px;
+    padding-bottom: 10px;
+}
+
+.object {
+    animation: MoveUpDown 4s linear infinite;
+    position: relative;
+  }
+
+  @keyframes MoveUpDown {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+
+div {
+    margin: 2px 2px 2px 2px;
+    font-family: Helvetica;
+}
