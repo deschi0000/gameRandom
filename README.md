@@ -4,7 +4,6 @@
 ## CS50x 2021
 
 #### Quick Explanation: https://www.youtube.com/watch?v=Zo3kTsOBB4Y
-#### Try it out herehttp://davevond.pythonanywhere.com/
 
 Built With:
 
